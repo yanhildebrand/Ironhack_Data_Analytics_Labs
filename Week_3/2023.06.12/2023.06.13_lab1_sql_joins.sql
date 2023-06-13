@@ -1,22 +1,10 @@
 use sakila;
 
-select amount, return_date from payment
-join rental on rental.rental_id = payment.rental_id;
-
-select amount, return_date from payment
-join rental using (rental_id);
-
 #1. List the number of films per category.
 select count(film.title), category.name from film 
 join film_category using (film_id)
 join category using (category_id)
 group by category.name;
-
-/*
-select * from film;
-select * from film_category;
-select * from category;
-*/
 
 #2. Retrieve the store ID, city, and country for each store.
 select store.store_id, city.city, country.country from store 
